@@ -1,18 +1,45 @@
-//
-//  LoginView.swift
-//  ArtistShotApp
-//
-//  Created by Jimmy Mantilla on 18/05/25.
-//
-
+import Resolver
 import SwiftUI
 
 struct LoginView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    @InjectedObject var viewModel: NotesViewModel
 
-#Preview {
-    LoginView()
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 20) {
+                Text("Notes Pro")
+                    .font(.largeTitle)
+                    .bold()
+
+                TextField("Username", text: $viewModel.username)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+
+                SecureField("Password", text: $viewModel.password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                Button("Login") {
+                    viewModel.login()
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+
+                if viewModel.loginFailed {
+                    Text("Invalid credentials")
+                        .foregroundColor(.red)
+                }
+
+                NavigationLink(
+                    destination: NotesListView(),
+                    isActive: $viewModel.isLoggedIn,
+                    label: { EmptyView() }
+                )
+            }
+            .padding()
+        }
+    }
 }

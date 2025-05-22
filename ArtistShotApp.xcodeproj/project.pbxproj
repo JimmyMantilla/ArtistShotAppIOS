@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		74A025EF2DDA9F5D00E25037 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 74A025EE2DDA9F5D00E25037 /* Resolver */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		7402F2A52DD9A24E00967EC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -22,6 +26,19 @@
 			remoteInfo = ArtistShotApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		74A025E52DDA6CFA00E25037 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7402F2912DD9A24C00967EC6 /* ArtistShotApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtistShotApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74A025EF2DDA9F5D00E25037 /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +120,7 @@
 				7402F28D2DD9A24C00967EC6 /* Sources */,
 				7402F28E2DD9A24C00967EC6 /* Frameworks */,
 				7402F28F2DD9A24C00967EC6 /* Resources */,
+				74A025E52DDA6CFA00E25037 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -112,6 +131,7 @@
 			);
 			name = ArtistShotApp;
 			packageProductDependencies = (
+				74A025EE2DDA9F5D00E25037 /* Resolver */,
 			);
 			productName = ArtistShotApp;
 			productReference = 7402F2912DD9A24C00967EC6 /* ArtistShotApp.app */;
@@ -195,6 +215,9 @@
 			);
 			mainGroup = 7402F2882DD9A24C00967EC6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				74A025ED2DDA9F5D00E25037 /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7402F2922DD9A24C00967EC6 /* Products */;
 			projectDirPath = "";
@@ -583,6 +606,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		74A025ED2DDA9F5D00E25037 /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		74A025EE2DDA9F5D00E25037 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74A025ED2DDA9F5D00E25037 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7402F2892DD9A24C00967EC6 /* Project object */;
 }

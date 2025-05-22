@@ -1,9 +1,4 @@
-//
-//  ContentView.swift
-//  ArtistShotApp
-//
-//  Created by Jimmy Mantilla on 18/05/25.
-//
+
 
 import SwiftUI
 import CoreData

@@ -1,8 +1,8 @@
-//
-//  NoteDTO.swift
-//  ArtistShotApp
-//
-//  Created by Jimmy Mantilla on 18/05/25.
-//
-
 import Foundation
+
+struct NoteDTO: Codable, Identifiable {
+    let id: Int
+    let title: String
+    let body: String
+    let userId: Int
+}

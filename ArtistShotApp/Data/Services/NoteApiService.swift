@@ -1,18 +1,29 @@
-//
-//  NoteApiService.swift
-//  ArtistShotApp
-//
-//  Created by Jimmy Mantilla on 18/05/25.
-//
+import Foundation
+import CoreData
+import Combine
 
-import SwiftUI
-
-struct NoteApiService: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+protocol NotesApiService {
+    func fetchNotes() async throws -> [NoteDTO]
 }
 
-#Preview {
-    NoteApiService()
+class NotesApiServiceImpl: NotesApiService {
+    func fetchNotes() async throws -> [NoteDTO] {
+        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
+        var request = URLRequest(url: url)
+        request.timeoutInterval = 10
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                throw URLError(.badServerResponse)
+            }
+            
+            return try JSONDecoder().decode([NoteDTO].self, from: data)
+        } catch {
+            print("Network error:", error)
+            throw error
+        }
+    }
 }

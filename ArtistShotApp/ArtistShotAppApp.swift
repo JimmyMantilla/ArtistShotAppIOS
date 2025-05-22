@@ -6,15 +6,19 @@
 //
 
 import SwiftUI
+import Resolver
 
 @main
 struct ArtistShotAppApp: App {
     let persistenceController = PersistenceController.shared
 
+    init() {
+        Resolver.registerAllServices()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            LoginView()
         }
     }
 }

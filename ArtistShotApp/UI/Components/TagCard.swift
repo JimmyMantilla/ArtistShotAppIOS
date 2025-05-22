@@ -1,18 +1,17 @@
-//
-//  TagCard.swift
-//  ArtistShotApp
-//
-//  Created by Jimmy Mantilla on 18/05/25.
-//
+
 
 import SwiftUI
 
-struct TagCard: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+struct TagItemView: View {
+    let tag: String
 
-#Preview {
-    TagCard()
+    var body: some View {
+        Text(tag)
+            .font(.caption)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 6)
+            .background(Color.gray.opacity(0.2))
+            .foregroundColor(.black)
+            .cornerRadius(12)
+    }
 }

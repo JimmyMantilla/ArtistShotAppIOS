@@ -1,18 +1,17 @@
-//
-//  EditNoteUseCase.swift
-//  ArtistShotApp
-//
-//  Created by Jimmy Mantilla on 21/05/25.
-//
+import Foundation
 
-import SwiftUI
-
-struct EditNoteUseCase: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+protocol EditNoteUseCase {
+    func execute(note: Note) async throws
 }
 
-#Preview {
-    EditNoteUseCase()
+class EditNoteUseCaseImpl: EditNoteUseCase {
+    private let repository: LocalNoteRepository
+
+    init(repository: LocalNoteRepository) {
+        self.repository = repository
+    }
+
+    func execute(note: Note) async throws {
+        try await repository.update(note: note)
+    }
 }

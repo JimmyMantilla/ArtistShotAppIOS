@@ -1,18 +1,7 @@
-//
-//  LoginUseCase.swift
-//  ArtistShotApp
-//
-//  Created by Jimmy Mantilla on 18/05/25.
-//
+import Foundation
 
-import SwiftUI
-
-struct LoginUseCase: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct LoginUseCase {
+    func execute(username: String, password: String) -> Bool {
+        return username == "artist1" && password == "artist123"
     }
-}
-
-#Preview {
-    LoginUseCase()
 }
